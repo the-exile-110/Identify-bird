@@ -55,7 +55,10 @@ export default function BirdesModel() {
   ));
 
   return (
-    <div className="flex flex-row w-full mt-20  content-center items-center justify-center">
+    <div className="flex flex-col w-full mt-64 content-center items-center justify-center">
+      <h2 className="mt-20 mb-10 text-4xl font-bold text-gray-700">
+        Identify a bird
+      </h2>
       <div className="bg-white m-5 rounded-md shadow-lg">
         <div
           {...getRootProps()}
@@ -67,8 +70,8 @@ export default function BirdesModel() {
           {isDragActive ? <p>拖拽到此处...</p> : <p>拖拽或点击此处上传图片</p>}
         </div>
       </div>
-      <div className="max-h-xl max-w-xl">
-        <aside className="flex flex-col pt-8 m-20 max-h-20 max-w-20 content-center justify-center items-center align-middle">
+      <div className=" max-h-xl max-w-xl">
+        <aside className="flex flex-col pt-20 m-20 max-h-20 max-w-20 content-center justify-center items-center align-middle">
           {thumbs}
           <p className="mt-5 text-xl font-bold text-gray-800">
             <span>{result[0]}</span>
