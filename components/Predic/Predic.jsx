@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import Image from "next/image";
 
 export default function BirdesModel() {
   const [result, setResult] = useState("");
@@ -48,7 +49,7 @@ export default function BirdesModel() {
   const thumbs = files.map((file) => (
     <div key={file.name} className="h-60">
       <img
-        className=" block  max-w-full max-h-full  rounded-md shadow-lg"
+        className=" block  max-w-full max-h-full rounded-md shadow-lg"
         src={file.preview}
       />
     </div>
@@ -56,9 +57,15 @@ export default function BirdesModel() {
 
   return (
     <div className="flex flex-col w-full mt-64 content-center items-center justify-center">
-      <h2 className="mt-20 mb-10 text-4xl font-bold text-gray-700">
-        Identify a bird
-      </h2>
+      <div className="mb-10 mt-64 flex flex-col w-full  content-center items-center justify-center">
+        <img src="/logo.png" alt="what birds" />
+        <h2 className="text-4xl font-bold text-gray-700">What birds?</h2>
+        <p>Whatbirds is a web app for bird identification.</p>
+        <p>
+          It covers 260 species of birds, and all bird materials are collected
+          from the internet.
+        </p>
+      </div>
       <div className="bg-white m-5 rounded-md shadow-lg">
         <div
           {...getRootProps()}
@@ -67,13 +74,17 @@ export default function BirdesModel() {
           }`}
         >
           <input {...getInputProps()} />
-          {isDragActive ? <p>拖拽到此处...</p> : <p>拖拽或点击此处上传图片</p>}
+          {isDragActive ? (
+            <p>Drag and drop here....</p>
+          ) : (
+            <p>Drag and drop or click here to upload pictures</p>
+          )}
         </div>
       </div>
       <div className=" max-h-xl max-w-xl">
-        <aside className="flex flex-col pt-20 m-20 max-h-20 max-w-20 content-center justify-center items-center align-middle">
+        <aside className="flex flex-col pt-20  m-20 mb-10 max-h-20 max-w-20 content-center justify-center items-center align-middle">
           {thumbs}
-          <p className="mt-5 text-xl font-bold text-gray-800">
+          <p className="mt-5 pb-10 text-xl font-bold text-gray-800">
             <span>{result[0]}</span>
           </p>
         </aside>
